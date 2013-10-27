@@ -1,0 +1,3 @@
+      var li = document.createElement("li");
+      li.innerHTML = '<%= check_box_tag 'shangpins[]', @shangpin.id,false %><%= "#{@shangpin.name}  #{@shangpin.baozhuang}   #{@shangpin.guige}X#{@shangpin.danzhong}千克"%> </br>' ;
+      $("#results_shangpin").append(li);

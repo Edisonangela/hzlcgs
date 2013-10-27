@@ -1,0 +1,34 @@
+<%= extLayoutInnerFrom("显示 调拨商")%>
+<div id='content'>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>名称:</b>
+  <%= @diaoboshang.name %>
+</p>
+
+<p>
+  <b>类型:</b>
+  <%= @diaoboshang.leixing %>
+</p>
+
+<p>
+  <b>地址:</b>
+  <%= @diaoboshang.dizhi %>
+</p>
+
+<p>
+  <b>执照有效期:</b>
+  <%= @diaoboshang.zhizhao %>
+</p>
+
+<p>
+  <b>食品流通许可有效期:</b>
+  <%= @diaoboshang.liutong %>
+</p>
+
+
+<%= link_to '编辑', edit_diaoboshang_path(@diaoboshang) %> |
+<%= link_to '返回', diaoboshangs_path %>
+</div>

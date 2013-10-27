@@ -1,0 +1,17 @@
+
+[1mFrom:[0m /home/edison/Aptana Studio 3 Workspace/hzlcgs0731/app/controllers/gongyingshangs_controller.rb @ line 118 GongyingshangsController#updatel:
+
+    [1;34m116[0m: [1;31mdef[0m [1;34mupdatel[0m
+    [1;34m117[0m:   @gongyingshang = [1;34m[4mGongyingshang[0m.find(params[[1;32m:id[0m])
+ => [1;34m118[0m:   binding.pry
+    [1;34m119[0m:   @gongyingshang.to_hash
+    [1;34m120[0m:   @gongyingshang.each [1;31mdo[0m |key,value|
+    [1;34m121[0m:     [1;31mif[0m key.to_s == params[[1;32m:field[0m]
+    [1;34m122[0m:       value == params[[1;32m:value[0m]
+    [1;34m123[0m:     [1;31mend[0m
+    [1;34m124[0m:   [1;31mend[0m 
+    [1;34m125[0m:   @gongyingshang.save
+    [1;34m126[0m:   render [1;32m:text[0m
+    [1;34m127[0m: 
+    [1;34m128[0m: [1;31mend[0m
+

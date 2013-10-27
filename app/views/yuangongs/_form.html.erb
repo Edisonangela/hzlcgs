@@ -1,0 +1,49 @@
+<%= form_for(@yuangong) do |f| %>
+  <% if @yuangong.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@yuangong.errors.count, "error") %> prohibited this yuangong from being saved:</h2>
+
+      <ul>
+      <% @yuangong.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %><br />
+    <%= f.text_field :sex %>
+  </div>
+  <div class="field">
+    <%= f.label :shenfenzhenghao %><br />
+    <%= f.text_field :shenfenzhenghao %>
+  </div>
+  <div class="field">
+    <%= f.label :jiguan %><br />
+    <%= f.text_field :jiguan %>
+  </div>
+  <div class="field">
+    <%= f.label :nianling %><br />
+    <%= f.text_field :nianling %>
+  </div>
+  <div class="field">
+    <%= f.label :dianhua %><br />
+    <%= f.text_field :dianhua %>
+  </div>
+  <div class="field">
+    <%= f.label :zhaopianlujing %><br />
+    <%= f.text_field :zhaopianlujing %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module YuangongsHelper
+end

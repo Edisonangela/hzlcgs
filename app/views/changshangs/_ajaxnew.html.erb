@@ -1,0 +1,45 @@
+<%= form_for(@changshang,:action => "create",:remote => true) do |f| %>
+  <% if @changshang.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@changshang.errors.count, "error") %> prohibited this changjium from being saved:</h2>
+
+      <ul>
+      <% @changshang.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :名称 %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :产品类型 %><br />
+    <%= raw pinlei f %>
+  </div>
+  <div class="field">
+    <%= f.label :地址 %><br />
+    <%= f.text_field :dizhi %>
+  </div>
+  <div class="field">
+    <%= f.label :执照有效期 %><br />
+    <%= f.date_select :zhizhao,:use_month_numbers => true,:start_year => 2013,:end_year => 2030 %>
+  </div>
+  <div class="field">
+    <%= f.label :生产许可证有效期 %><br />
+    <%= f.date_select :shengchanxuke,:use_month_numbers => true,:start_year => 2013,:end_year => 2030 %>
+  </div>
+  <div class="field">
+    <%= f.label :动物防疫条件合格证有效期 %><br />
+    <%= f.date_select :fangyi,:use_month_numbers => true,:start_year => 2013,:end_year => 2030 %>
+  </div>
+  <div class="field">
+    <%= f.label :养殖证有效期 %><br />
+    <%= f.date_select :yangzhi,:use_month_numbers => true,:start_year => 2013,:end_year => 2030 %>
+  </div>
+  <div class="actions">
+    <%= f.submit "保存" %>
+  </div>
+<% end %>

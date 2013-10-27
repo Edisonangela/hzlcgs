@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 
+  dalei: 
+  neirong: 
+  fenzhi: 
+  xuhao: 
+  kaopingbumen: 
+  kaohefangshi: 
+
+two:
+  id: 
+  dalei: 
+  neirong: 
+  fenzhi: 
+  xuhao: 
+  kaopingbumen: 
+  kaohefangshi: 

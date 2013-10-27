@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/edison/Aptana Studio 3 Workspace/hzlcgs/app/helpers/shipinanquan_helper.rb @ line 101 ShipinanquanHelper#shangjiasp:
+
+     [1;34m96[0m:   [0;34m#{ render "shangpins/ajaxnew" }[0m
+     [1;34m97[0m: 
+     [1;34m98[0m: 
+     [1;34m99[0m: <[31m[1;29m/[0m[31m[31mdiv>[0m[31m[0m
+    [1;34m100[0m: [32m[1;32m'[0m[32m[0m
+ => [1;34m101[0m:   binding.pry
+    [1;34m102[0m:    str
+    [1;34m103[0m:   [1;31mend[0m
+    [1;34m104[0m: [1;31mend[0m
+    [1;34m105[0m: 
+    [1;34m106[0m: 
+

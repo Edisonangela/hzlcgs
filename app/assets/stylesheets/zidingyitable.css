@@ -1,0 +1,86 @@
+/*角标的表格*/
+#mytable {
+	width: 950x;
+	padding: 0;
+	margin: 0;
+}
+
+caption {
+	padding: 0 0 5px 0;
+	width: 700px;	 
+	font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	text-align: right;
+}
+
+/*#CAE8EA*/
+th.zi {
+	font: bold 13px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: white;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	background: #6495ED ;
+}
+
+th.nobg {
+	border-top: 0;
+	border-left: 0;
+	border-right: 1px solid #C1DAD7;
+	background: none;
+}
+
+
+/*#797268*/
+
+td.alt1 {
+	background: #F5FAFA;
+	color: #8B4726;
+}
+
+td.spec1 {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #fff url(bullet1.gif) no-repeat;
+	font: bold 13px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+td.specalt1 {
+	
+	z-index:1000;
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #f5fafa url(bullet2.gif) no-repeat;
+	font: bold 13px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #8B4726;
+}
+
+.biaogefenye{
+	font: bold 13px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	margin-left:240px;
+	color: #8B4726；
+	
+}
+
+
+
+
+
+
+/*鼠标事件.黑体字*/
+tbody tr.ruled td
+{
+		color: #000;
+		background-color: #C6E3FF; 
+		font-weight: bold;
+		border-color: #3292FC;
+	}
+	
+	tbody tr.even td{
+		background: #eee;
+	}
+
+

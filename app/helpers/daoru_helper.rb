@@ -1,0 +1,2 @@
+module DaoruHelper
+end

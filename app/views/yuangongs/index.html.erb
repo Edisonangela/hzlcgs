@@ -1,0 +1,37 @@
+<h1>Listing yuangongs</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Sex</th>
+    <th>Shenfenzhenghao</th>
+    <th>Jiguan</th>
+    <th>Nianling</th>
+    <th>Dianhua</th>
+    <th>Zhaopianlujing</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @yuangongs.each do |yuangong| %>
+  <tr>
+    <td><%= yuangong.id %></td>
+    <td><%= yuangong.name %></td>
+    <td><%= yuangong.sex %></td>
+    <td><%= yuangong.shenfenzhenghao %></td>
+    <td><%= yuangong.jiguan %></td>
+    <td><%= yuangong.nianling %></td>
+    <td><%= yuangong.dianhua %></td>
+    <td><%= yuangong.zhaopianlujing %></td>
+    <td><%= link_to 'Show', yuangong %></td>
+    <td><%= link_to 'Edit', edit_yuangong_path(yuangong) %></td>
+    <td><%= link_to 'Destroy', yuangong, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Yuangong', new_yuangong_path %>

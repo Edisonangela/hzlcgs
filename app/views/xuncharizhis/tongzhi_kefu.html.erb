@@ -1,0 +1,348 @@
+<%= ext_layout_tabpanel(
+                   "{
+                        contentEl:'content',
+                        title: '未回复工作',
+                        //closable:true,
+                        autoScroll:true
+                    },{
+                        contentEl:'content1',
+                        title: '已回复工作',
+                        autoScroll:true
+                    }"
+                    
+                    )%>
+<!--ext_edit_grid(title,     model,       primary_key,weizhi,pagesize,neirong,plant,fields,columns,newplant,newplantshujucaozuo) -->
+
+
+<%= xuncharizhi_ext_edit_grid_iest("巡查日志","xuncharizhis","id","content","25", "巡查日志",
+"//plant(工厂)模型定义，plant用于表格添加行，所用的格式模型
+// the 'name' below matches the tag name to read, except 'availDate'
+           // which is mapped to the tag 'availability'
+           {name: 'id', type: 'integer'},
+           {name: 'zhuangtai', type: 'bool'},
+           {name: 'faqishijian', type: 'date'},
+           {name: 'tanweihao', type: 'string'},
+           {name: 'zihao', type: 'string'},
+           {name: 'wentidalei'},
+           {name: 'wenti', type: 'string'},
+           {name: 'kefutishi', type: 'bool'},
+           {name: 'kefuhuifu', type: 'string'},
+           {name: 'kefuhuifushijian', type: 'date'},
+           {name: 'faqiren', type: 'string'}
+",
+
+
+"//field
+'zhuangtai','faqiren','faqishijian','tanweihao','zihao','wentidalei','wenti','kefutishi','kefuhuifu','kefuhuifushijian'
+",
+
+"wenti",
+
+
+"//columnmodel
+ 
+ checkColumn_zhuangtai, 
+        {
+           
+           header: '发起人',
+           dataIndex: 'faqiren',
+           width: 60,
+           //editor: new fm.TextField({
+             //  allowBlank: false
+           //})
+        },
+       {   
+           header: '发起时间',
+           dataIndex: 'faqishijian',
+           width: 90,
+           //renderer: formatDate,
+           editor: new fm.DateField({
+                format: 'm/d/y',
+                minValue: '01/01/06',
+                disabledDays: [0, 6],
+                disabledDaysText: 'Plants are not available on the weekends'
+            })
+       },
+      {
+           
+           header: '商户号',
+           dataIndex: 'tanweihao',
+           width: 50,
+           editor: new fm.TextField({
+               allowBlank: false
+           })
+        },
+        {
+           
+           header: '字号',
+           dataIndex: 'zihao',
+           width: 100,
+           editor: new fm.TextField({
+               allowBlank: false
+           })
+        },
+        {
+           header: '问题大类',
+           dataIndex: 'wentidalei',
+           width: 90,
+           editor: new Ext.form.ComboBox({
+               typeAhead: true,
+               triggerAction: 'all',
+               transform:'wentidalei',
+               lazyRender:true,
+               listClass: 'x-combo-list-small'
+            })
+        },
+       {                      //要自动增加填补宽度的列给他 设置  id:autoExpandColumn
+           id: 'autoExpandColumn',
+           header: '问题',
+           dataIndex: 'wenti',
+           width: 310,
+           editor: new fm.TextField({
+               allowBlank: false
+           })
+        },  
+        checkColumn_kefutishi, 
+        
+    {
+           
+           header: '客服回复',
+           dataIndex: 'kefuhuifu',
+           width: 210,
+           editor: new fm.TextField({
+               allowBlank: false
+           })
+        },
+        
+        {   
+           header: '客服回复时间',
+           dataIndex: 'kefuhuifushijian',
+           width: 90,
+           //renderer: formatDate,
+           editor: new fm.DateField({
+                format: 'm/d/y',
+                minValue: '01/01/06',
+                disabledDays: [0, 6],
+                disabledDaysText: 'Plants are not available on the weekends'
+            })
+       }
+",
+
+
+"//add按钮点击后，data_store更新，这些内容添加至视图表格内
+                    faqiren: '#{User.find(session[:user_id]).name}',
+                    faqishijian: (new Date()),
+                    id:insert_id,
+                    zhuangtai: false,
+                    wentidalei: '商品备案',
+                    kefuhuifushijian: (new Date()).clearTime(),
+                    kefutishi: false
+",
+
+
+"//add按钮点击后，因添加行的name属性自动（见楼上）赋值为《新数据行》，故进行如下数据库输出操作
+faqiren: '#{session[:user_id]}',
+wentidalei: '商品备案',
+zhuangtai: false,
+kefutishi: false,
+faqishijian: (new Date())
+",
+
+    "
+
+    var checkColumn_zhuangtai = new Ext.grid.CheckColumn({
+       header: '日志状态',
+       dataIndex: 'zhuangtai',
+       width: 55,
+    
+    });
+    var checkColumn_kefutishi = new Ext.grid.CheckColumn({
+       header: '客服提示',
+       dataIndex: 'kefutishi',
+       width: 55,
+  
+    });
+    ",
+    
+    #定义grid表的datastore的初始化Url
+    "/xuncharizhis.json?searchzhuangtai=0&searchkefutishi=1",
+    
+    #plugins设置
+    "checkColumn_zhuangtai,checkColumn_kefutishi",
+    
+    "updatel.json",
+    "createl.json",
+    "deletel.json"                         
+) %>
+
+
+
+<%= xuncharizhi_ext_edit_grid_iest("巡查日志","xuncharizhis","id","content1","25", "巡查日志",
+"//plant(工厂)模型定义，plant用于表格添加行，所用的格式模型
+// the 'name' below matches the tag name to read, except 'availDate'
+           // which is mapped to the tag 'availability'
+           {name: 'id', type: 'integer'},
+           {name: 'zhuangtai', type: 'bool'},
+           {name: 'faqishijian', type: 'date'},
+           {name: 'tanweihao', type: 'string'},
+           {name: 'zihao', type: 'string'},
+           {name: 'wentidalei'},
+           {name: 'wenti', type: 'string'},
+           {name: 'kefutishi', type: 'bool'},
+           {name: 'kefuhuifu', type: 'string'},
+           {name: 'kefuhuifushijian', type: 'date'},
+           {name: 'faqiren', type: 'string'}
+",
+
+
+"//field
+'zhuangtai','faqiren','faqishijian','tanweihao','zihao','wentidalei','wenti','kefutishi','kefuhuifu','kefuhuifushijian'
+",
+"wenti",
+
+"//columnmodel
+ checkColumn_zhuangtai1, 
+        {id: 'autoExpandColumn',
+           
+           header: '发起人',
+           dataIndex: 'faqiren',
+           width: 60,
+           //editor: new fm.TextField({
+             //  allowBlank: false
+           //})
+        },
+       {   
+           header: '发起时间',
+           dataIndex: 'faqishijian',
+           width: 90,
+           //renderer: formatDate,
+           editor: new fm.DateField({
+                format: 'm/d/y',
+                minValue: '01/01/06',
+                disabledDays: [0, 6],
+                disabledDaysText: 'Plants are not available on the weekends'
+            })
+       },
+      {
+           
+           header: '商户号',
+           dataIndex: 'tanweihao',
+           width: 50,
+           editor: new fm.TextField({
+               allowBlank: false
+           })
+        },
+              {
+           
+           header: '字号',
+           dataIndex: 'zihao',
+           width: 100,
+           editor: new fm.TextField({
+               allowBlank: false
+           })
+        },
+        {
+           header: '问题大类',
+           dataIndex: 'wentidalei',
+           width: 90,
+           editor: new Ext.form.ComboBox({
+               typeAhead: true,
+               triggerAction: 'all',
+               transform:'wentidalei1',
+               lazyRender:true,
+               listClass: 'x-combo-list-small'
+            })
+        },
+       {
+       	    //要自动增加填补宽度的列给他 设置  id:autoExpandColumn
+           
+           header: '问题',
+           dataIndex: 'wenti',
+           width: 350,
+           editor: new fm.TextField({
+               allowBlank: false
+           })
+        },  
+        checkColumn_kefutishi1,
+    
+    {
+           
+           header: '客服回复',
+           dataIndex: 'kefuhuifu',
+           width: 260,
+           editor: new fm.TextField({
+               allowBlank: false
+           })
+        },
+        
+        {   
+           header: '客服回复时间',
+           dataIndex: 'kefuhuifushijian',
+           width: 90,
+           //renderer: formatDate,
+           editor: new fm.DateField({
+                format: 'm/d/y',
+                minValue: '01/01/06',
+                disabledDays: [0, 6],
+                disabledDaysText: 'Plants are not available on the weekends'
+            })
+       }
+",
+
+
+"//add按钮点击后，data_store更新，这些内容添加至视图表格内
+                    faqiren: '#{User.find(session[:user_id]).name}',
+                    faqishijian: (new Date()),
+                    id:insert_id,
+                    zhuangtai: false,
+                    wentidalei: '商品备案',
+                    kefuhuifushijian: (new Date()).clearTime(),
+                    kefutishi: false
+",
+
+
+"//add按钮点击后，因添加行的name属性自动（见楼上）赋值为《新数据行》，故进行如下数据库输出操作
+faqiren: '#{session[:user_id]}',
+wentidalei: '商品备案',
+zhuangtai: false,
+kefutishi: false,
+faqishijian: (new Date())
+",
+
+    "var checkColumn_zhuangtai1 = new Ext.grid.CheckColumn({
+       header: '日志状态',
+       dataIndex: 'zhuangtai',
+       width: 55,
+       
+    });
+    var checkColumn_kefutishi1 = new Ext.grid.CheckColumn({
+       header: '客服提示',
+       dataIndex: 'kefutishi',
+       width: 55
+    });
+    ",
+    
+    #定义grid表的datastore的初始化Url
+    "/xuncharizhis.json?searchzhuangtai=1&searchkefutishi=1",
+    
+    "checkColumn_zhuangtai1,checkColumn_kefutishi1",
+    
+    "updatel.json",
+    "createl.json",
+    "deletel.json"                      
+) %>
+
+<!-- you must define the select box here, as the custom editor for the 'Light' column will require it -->
+<select name="wentidalei" id="wentidalei" style="display: none;">
+   <%= raw xuncharizhidalei%>
+
+</select>
+
+<select name="wentidalei1" id="wentidalei1" style="display: none;">
+	<%= raw xuncharizhidalei%>
+
+</select>
+
+<div id="content"></div>
+
+<div id="content1"></div>

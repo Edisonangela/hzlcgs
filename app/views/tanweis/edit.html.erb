@@ -1,0 +1,41 @@
+<%= extLayoutInnerFrom("编辑 商户")%>
+<div id='content'>
+
+<h1>编辑摊位</h1>
+
+<%= render 'form' %>
+
+
+
+
+</br>
+<h1><label><%= @tanwei.tanweihao%>摊位当前入驻的商户：</label></h1>
+<%= form_for @tanwei, :url => {:action => :associate, :id =>@tanwei } do |f| %>
+<ul>
+  
+  	<% @tanwei.shanghus.each do |g|%>
+  	   <li>
+  	    <%= check_box_tag 'shanghus[]', g.id,true%>
+
+  	   	<%= "#{g.fuzeren}  #{g.zihao}"%>
+  	   </li>
+  	<% end %>
+     <div id="results"></div>
+  </ul>
+  <div class="actions">
+    <%= f.submit '保存入驻商户'%>
+  </div>
+  
+
+<% end %>
+</br>
+<h1><label>增加<%= @tanwei.tanweihao%>摊位入驻的商户：</label></h1>
+<%= form_tag( search_path , :remote => true) do %>
+
+    查找：<%= text_field_tag 'shuju'%>
+<%= submit_tag '查找' %>
+<% end %>
+<%= link_to '显示', @tanwei %> |
+<%= link_to '返回', tanweis_path %>
+</div>
+

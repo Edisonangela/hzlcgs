@@ -1,0 +1,38 @@
+<%= form_for(@shangpin) do |f| %>
+  <% if @shangpin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shangpin.errors.count, "error") %> prohibited this shangpin from being saved:</h2>
+
+      <ul>
+      <% @shangpin.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :品名 %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :品类 %><br />
+    <%= raw pinlei f %>
+  </div>
+  <div class="field">
+    <%= f.label :包装 %><br />
+    <%= raw baozhuangleixing f %>
+  </div>
+  <div class="field">
+    <%= f.label :规格 %><br />
+    <%= f.text_field :guige %>
+  </div>
+  <div class="field">
+    <%= f.label :单重 %><br />
+    <%= f.text_field :danzhong %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit '更新商品信息'%>
+  </div>
+<% end %>

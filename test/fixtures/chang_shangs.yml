@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  changzhi: MyString
+  leixing: MyString
+  zhizhao: 2013-02-25 21:46:20
+  liutong: 
+  xuke: 2013-02-25 21:46:20
+
+two:
+  name: MyString
+  changzhi: MyString
+  leixing: MyString
+  zhizhao: 2013-02-25 21:46:20
+  liutong: 
+  xuke: 2013-02-25 21:46:20

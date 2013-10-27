@@ -1,0 +1,57 @@
+<%= form_for(@weiguijilu) do |f| %>
+  <% if @weiguijilu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@weiguijilu.errors.count, "error") %> prohibited this weiguijilu from being saved:</h2>
+
+      <ul>
+      <% @weiguijilu.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :shuanghu_id %><br />
+    <%= f.text_field :shuanghu_id %>
+  </div>
+  <div class="field">
+    <%= f.label :yuangong_id %><br />
+    <%= f.text_field :yuangong_id %>
+  </div>
+  <div class="field">
+    <%= f.label :guifan_id %><br />
+    <%= f.text_field :guifan_id %>
+  </div>
+  <div class="field">
+    <%= f.label :xinyongzhouqi_id %><br />
+    <%= f.text_field :xinyongzhouqi_id %>
+  </div>
+  <div class="field">
+    <%= f.label :shijian %><br />
+    <%= f.date_select :shijian %>
+  </div>
+  <div class="field">
+    <%= f.label :weiguineirong %><br />
+    <%= f.text_field :weiguineirong %>
+  </div>
+  <div class="field">
+    <%= f.label :chuliqingkuang %><br />
+    <%= f.text_field :chuliqingkuang %>
+  </div>
+  <div class="field">
+    <%= f.label :koufen %><br />
+    <%= f.text_field :koufen %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

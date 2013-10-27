@@ -1,0 +1,37 @@
+<%= form_for(@diaoboshang) do |f| %>
+  <% if @diaoboshang.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@diaoboshang.errors.count, "error") %> prohibited this diaoboshang from being saved:</h2>
+
+      <ul>
+      <% @diaoboshang.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :名称 %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :产品类型 %><br />
+    <%= raw pinlei f %>
+  </div>
+  <div class="field">
+    <%= f.label :地址 %><br />
+    <%= f.text_field :dizhi %>
+  </div>
+  <div class="field">
+    <%= f.label :执照有效期 %><br />
+    <%= f.date_select :zhizhao,:use_month_numbers => true,:start_year => 2013,:end_year => 2030 %>
+  </div>
+  <div class="field">
+    <%= f.label :食品流通许可有效期 %><br />
+    <%= f.date_select :liutong,:use_month_numbers => true,:start_year => 2013,:end_year => 2030 %>
+  </div>
+  <div class="actions">
+    <%= f.submit '保存'%>
+  </div>
+<% end %>

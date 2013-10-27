@@ -1,0 +1,35 @@
+<%= extLayoutInnerFrom("显示 商品")%>
+<div id='content'>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>品名:</b>
+  <%= @shangpin.name %>
+</p>
+
+<p>
+  <b>品类:</b>
+  <%= @shangpin.leixing %>
+</p>
+
+<p>
+  <b>包装:</b>
+  <%= @shangpin.baozhuang %>
+</p>
+
+<p>
+  <b>规格:</b>
+  <%= @shangpin.guige %>
+</p>
+
+<p>
+  <b>单重:</b>
+  <%= @shangpin.danzhong %>
+</p>
+
+
+<%= link_to '编辑', edit_shangpin_path(@shangpin) %> |
+<%= link_to '返回', shangpins_path %>
+
+</div>

@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/edison/Aptana Studio 3 Workspace/hzlcgs0731/app/controllers/daoru_controller.rb @ line 451 DaoruController#weiguijiludaoru:
+
+    [1;34m446[0m:     [1;31mend[0m
+    [1;34m447[0m:     
+    [1;34m448[0m:   [1;34m[4mSpreadsheet[0m.client_encoding = [32m[1;32m'[0m[32mUTF-8[1;32m'[0m[32m[0m
+    [1;34m449[0m:   book = [1;34m[4mSpreadsheet[0m.open path
+    [1;34m450[0m:   sheet1 = book.worksheet [1;34m0[0m
+ => [1;34m451[0m:   binding.pry
+    [1;34m452[0m:   sheet1.each [1;34m1[0m [1;31mdo[0m |row|
+    [1;34m453[0m:     weiguijilu=[1;34m[4mWeiguijilu[0m.new
+    [1;34m454[0m:     xinhao1=[1;36mtrue[0m
+    [1;34m455[0m:     [1;31mif[0m (row[[1;34m0[0m]==[1;36mnil[0m [1;31mor[0m row[[1;34m5[0m]==[1;36mnil[0m [1;31mor[0m row[[1;34m4[0m]==[1;36mnil[0m)
+    [1;34m456[0m:     [1;31mnext[0m
+

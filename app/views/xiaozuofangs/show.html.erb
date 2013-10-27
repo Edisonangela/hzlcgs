@@ -1,0 +1,23 @@
+<%= extLayoutInnerFrom("显示 小作坊")%>
+<div id='content'>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>名称:</b>
+  <%= @xiaozuofang.name %>
+</p>
+
+<p>
+  <b>类型:</b>
+  <%= @xiaozuofang.leixing %>
+</p>
+
+<p>
+  <b>地址:</b>
+  <%= @xiaozuofang.dizhi %>
+</p>
+
+
+<%= link_to '编辑', edit_xiaozuofang_path(@xiaozuofang) %> |
+<%= link_to '返回', xiaozuofangs_path %>
+</div>

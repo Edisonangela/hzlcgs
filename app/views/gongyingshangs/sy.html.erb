@@ -1,0 +1,101 @@
+<%= ext_layout%>
+<!--ext_edit_grid(title,     model,   primary_key,weizhi,pagesize,checkcolumnname,checkcolumnindex,neirong,plant,fields,columns,newplant,newplantshujucaozuo) -->
+<%= ext_edit_grid("巡查日志","gongyingshang","id","content","25",       "状态",           "zhuangtai", "供应商",
+
+
+"//plant(工厂)模型定义，plant用于表格添加行，所用的格式模型
+// the 'name' below matches the tag name to read, except 'availDate'
+           // which is mapped to the tag 'availability'
+           {name: 'id', type: 'integer'},
+           {name: 'name', type: 'string'},
+           {name: 'dizhi', type: 'string'},
+           {name: 'light'},
+           {name: 'price', type: 'float'},             // automatic date conversions
+           {name: 'availDate', mapping: 'availability', type: 'date', dateFormat: 'm/d/Y'},
+           {name: 'indoor', type: 'bool'}
+",
+
+
+"//field
+'name','dizhi'
+",
+
+
+"//columnmodel
+ checkColumn,
+      {
+           id: 'autoExpandColumn',
+           header: '生产商',
+           dataIndex: 'name',
+           width: 220,
+           editor: new fm.TextField({
+               allowBlank: false
+           })
+        },{
+           header: 'Light',
+           dataIndex: 'dizhi',
+           width: 130,
+           editor: new Ext.form.ComboBox({
+               typeAhead: true,
+               triggerAction: 'all',
+               transform:'light',
+               lazyRender:true,
+               listClass: 'x-combo-list-small'
+            })
+        },{
+           header: 'Price',
+           dataIndex: 'price',
+           width: 70,
+           align: 'right',
+           renderer: 'usMoney',
+           editor: new fm.NumberField({
+               allowBlank: false,
+               allowNegative: false,
+               maxValue: 100000
+           })
+        },{
+           header: 'Available',
+           dataIndex: 'availDate',
+           width: 95,
+           renderer: formatDate,
+           editor: new fm.DateField({
+                format: 'm/d/y',
+                minValue: '01/01/06',
+                disabledDays: [0, 6],
+                disabledDaysText: 'Plants are not available on the weekends'
+            })
+        }
+",
+
+
+"//add按钮点击后，data_store更新，这些内容添加至视图表格内
+name: '新数据行',
+                    id:insert_id,
+                    dizhi: '',
+                    price: 0,
+                    availDate: (new Date()).clearTime(),
+                    indoor: false
+",
+
+
+"//add按钮点击后，因添加行的name属性自动（见楼上）赋值为《新数据行》，故进行如下数据库输出操作
+name:'新建数据行'"
+
+                       
+
+) %>
+
+<!-- you must define the select box here, as the custom editor for the 'Light' column will require it -->
+<select name="light" id="light" style="display: none;">
+	<option value="Shade">Shade</option>
+	<option value="Mostly Shady">Mostly Shady</option>
+	<option value="Sun or Shade">Sun or Shade</option>
+
+	<option value="Mostly Sunny">Mostly Sunny</option>
+
+	<option value="Sunny">Sunny</option>
+</select>
+
+<div id="content"></div>
+
+

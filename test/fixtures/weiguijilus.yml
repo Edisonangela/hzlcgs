@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 
+  shuanghu_id: 
+  yuangong_id: 
+  guifan_id: 
+  xinyongzhouqi_id: 
+  shijian: 2013-08-23
+  weiguineirong: 
+  chuliqingkuang: 
+  koufen: 1.5
+  user_id: 
+
+two:
+  id: 
+  shuanghu_id: 
+  yuangong_id: 
+  guifan_id: 
+  xinyongzhouqi_id: 
+  shijian: 2013-08-23
+  weiguineirong: 
+  chuliqingkuang: 
+  koufen: 1.5
+  user_id: 

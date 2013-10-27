@@ -1,0 +1,33 @@
+<%= form_for(@shangpin,:action => "create",:remote => true) do |f| %>
+  <% if @shangpin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shangpin.errors.count, "error") %> prohibited this shangpin from being saved:</h2>
+
+      <ul>
+      <% @shangpin.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :产品类型 %><%= raw pinlei f %>
+    
+  </div>
+  <div class="field">
+  <%= f.label :名称 %><%= f.text_field :name %>
+  </div> 
+    
+
+  <div class="field">
+    <%= f.label :包装 %><%= raw baozhuangleixing f %></br>
+    <%= f.label :每箱 %><%= f.text_field :guige %><%= f.label :件。 %><%= f.label :每件 %><%= f.text_field :danzhong %><%= f.label :千克 %>
+  </div>
+  <div class="field">
+    
+  </div>
+
+  <div class="actions">
+    <%= f.submit'保存' %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 
+  name: 
+  sex: 
+  shenfenzhenghao: 
+  jiguan: 
+  nianling: 
+  dianhua: 
+  zhaopianlujing: MyString
+
+two:
+  id: 
+  name: 
+  sex: 
+  shenfenzhenghao: 
+  jiguan: 
+  nianling: 
+  dianhua: 
+  zhaopianlujing: MyString

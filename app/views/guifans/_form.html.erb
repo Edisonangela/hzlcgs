@@ -1,0 +1,45 @@
+<%= form_for(@guifan) do |f| %>
+  <% if @guifan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@guifan.errors.count, "error") %> prohibited this guifan from being saved:</h2>
+
+      <ul>
+      <% @guifan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :dalei %><br />
+    <%= f.text_field :dalei %>
+  </div>
+  <div class="field">
+    <%= f.label :neirong %><br />
+    <%= f.text_field :neirong %>
+  </div>
+  <div class="field">
+    <%= f.label :fenzhi %><br />
+    <%= f.text_field :fenzhi %>
+  </div>
+  <div class="field">
+    <%= f.label :xuhao %><br />
+    <%= f.text_field :xuhao %>
+  </div>
+  <div class="field">
+    <%= f.label :kaopingbumen %><br />
+    <%= f.text_field :kaopingbumen %>
+  </div>
+  <div class="field">
+    <%= f.label :kaohefangshi %><br />
+    <%= f.text_field :kaohefangshi %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

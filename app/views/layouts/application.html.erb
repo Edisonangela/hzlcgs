@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8 " />
+  <%= stylesheet_link_tag    "ext-all","zhuye","grid-examples","examples","zidingyitable", :media => "all" %>
+  <%= javascript_include_tag "jquery-1.7.1","rails","application","ext-base","ext-all","table" %>
+  <%= csrf_meta_tags %>
+  
+</head>
+<body>
+<script type="text/javascript" src=<%=javascript_path("examples")%>></script>
+	<div id='header' class="ylayout-inactive-content">
+	<%= image_tag 'img_73.jpg' %>
+   </div>
+	<%= yield %>
+	<div id="sidebar_shangpinbeian" class="ylayout-inactive-content">
+	<div id="sidebar-nav">
+		<% if (session[:user_power] != '工作员' and session[:user_power] != nil) %>
+		<%= link_to image_tag('tanwei.jpg'), :controller => "tanweis" %><br />
+		<% end %>
+		
+		
+		<%= link_to image_tag('shanghu.jpg'), :controller => 'shanghus' %><br />
+		
+		<% if (session[:user_power] != '工作员' and session[:user_power] != nil)%>
+		<%= link_to image_tag('shangpin.jpg'), :controller => "shangpins" %><br />	
+		<% end %>
+		<% if (session[:user_power] != '工作员' and session[:user_power] != nil)%>
+		<%= link_to image_tag('changshang.jpg'), :controller => "changshangs" %><br />
+		<% end %>
+		<% if (session[:user_power] != '工作员' and session[:user_power] != nil)%>	
+		<%= link_to image_tag('gongyingshang.jpg'), :controller => "gongyingshangs" %><br />	
+		<% end %>
+		<% if (session[:user_power] != '工作员' and session[:user_power] != nil)%>
+		<%= link_to image_tag('diaoboshang.jpg'), :controller => "diaoboshangs" %><br />	
+		<% end %>
+		<% if (session[:user_power] != '工作员' and session[:user_power] != nil)%>
+		<%= link_to image_tag('xiaozuofang.jpg'), :controller => "xiaozuofangs" %><br />	
+		<% end %>
+	</div>
+</div>	
+
+
+<div id="sidebar_gongzuobeiwang" class="ylayout-inactive-content">
+	<div id="sidebar-nav">
+		<% if (session[:user_power] = '管理员' or session[:user_power] = '工作员' and session[:user_power] != nil) %>
+		<%= link_to image_tag('gongzuobeiwang.jpg'), :controller => "xuncharizhis" %><br />
+		<% end %>
+		<% if (session[:user_power] = '客服' or session[:user_power] = '管理员' and session[:user_power] != nil) %>
+		<%= link_to image_tag('kefuxiaoxi.jpg'), :controller => "xuncharizhis",:action => "tongzhi_kefu" %><br />
+		<% end %>
+		
+		
+
+	</div>
+
+</div>	
+
+<div id="sidebar_xuncharizhi" class="ylayout-inactive-content">
+	<div id="sidebar-nav">
+		<% if (session[:user_power] = '管理员' or session[:user_power] = '工作员' and session[:user_power] != nil) %>
+		<%= link_to image_tag('weiguijilu.jpg'), :controller => "weiguijilus" %><br />
+		<% end %>
+		<% if (session[:user_power] = '客服' or session[:user_power] = '管理员' and session[:user_power] != nil) %>
+		<%= link_to image_tag('zhouqidefen.jpg'), :controller => "xinyongtongjis" %><br />
+		<% end %>
+		<% if (session[:user_power] = '客服' or session[:user_power] = '管理员' and session[:user_power] != nil) %>
+		<%= link_to image_tag('kaopingguifan.jpg'), :controller => "guifans" %><br />
+		<% end %>
+		<% if (session[:user_power] = '客服' or session[:user_power] = '管理员' and session[:user_power] != nil) %>
+		<%= link_to image_tag('kaopingzhouqi.jpg'), :controller => "xinyongzhouqis" %><br />
+		<% end %>
+		
+		
+
+	</div>
+
+</div>	
+
+
+
+
+</body>
+</html>

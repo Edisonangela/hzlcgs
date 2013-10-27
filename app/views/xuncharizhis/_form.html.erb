@@ -1,0 +1,57 @@
+<%= form_for(@xuncharizhi) do |f| %>
+  <% if @xuncharizhi.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@xuncharizhi.errors.count, "error") %> prohibited this xuncharizhi from being saved:</h2>
+
+      <ul>
+      <% @xuncharizhi.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :zhuangtai %><br />
+    <%= f.text_field :zhuangtai %>
+  </div>
+  <div class="field">
+    <%= f.label :faqishijian %><br />
+    <%= f.date_select :faqishijian %>
+  </div>
+  <div class="field">
+    <%= f.label :shanghu_id %><br />
+    <%= f.text_field :shanghu_id %>
+  </div>
+  <div class="field">
+    <%= f.label :wenti %><br />
+    <%= f.text_field :wenti %>
+  </div>
+  <div class="field">
+    <%= f.label :wentidalei %><br />
+    <%= f.text_field :wentidalei %>
+  </div>
+  <div class="field">
+    <%= f.label :kefutishi %><br />
+    <%= f.text_field :kefutishi %>
+  </div>
+  <div class="field">
+    <%= f.label :kefuwanchengshijian %><br />
+    <%= f.date_select :kefuwanchengshijian %>
+  </div>
+  <div class="field">
+    <%= f.label :kefuhuifu %><br />
+    <%= f.text_field :kefuhuifu %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

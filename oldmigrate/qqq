@@ -1,0 +1,60 @@
+首先,我的combobox是使用本地的字典表,即在namespace里定义的数据.数据结构为:
+
+Ext.data.status = [
+ ['1', 'Yes'],
+ ['0', 'No'] 
+]
+
+ 
+
+我要实现的是在grid中显示字典表里对应的value,而不是code.需要有下面几个步骤:
+
+ 
+
+1.定义ds,即引入字典表中的数据
+
+     var statusDS = new Ext.data.SimpleStore({ //通过字典表获得用户使用状态数据源
+          fields: ['code', 'value'],
+          data:Ext.data.status //这里对应我在字典表里定义的类型名称
+     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+           header: '<s:text name="com.label.authority"/>',
+           dataIndex: 'userAuthority',
+           width: 60,
+           align: 'center',
+           editor: new Ext.form.ComboBox({
+              id:'statusCmb',  //为combobox定义一个ID,必须的
+              hiddenName:'',
+              store: statusDS,  //引入ds     
+              displayField:'value', //值
+              valueField:'code', //代码
+              editable:false,
+              mode: 'local',
+              triggerAction: 'all'
+        }),
+        renderer: function(value, cellmeta, record) {
+
+          //通过匹配value取得ds索引
+          var index = statusDS.find(Ext.getCmp('statusCmb').valueField,value); 
+
+          //通过索引取得记录ds中的记录集
+          var record = statusDS.getAt(index); 
+
+          //返回记录集中的value字段的值
+          return record.data.value;
+        }          
+        }

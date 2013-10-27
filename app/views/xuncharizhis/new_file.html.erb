@@ -1,0 +1,26 @@
+{
+                    region:'west',
+                    id:'west-panel',
+                    title:'功能菜单',
+                    split:true,
+                    width: 118,
+                    minSize: 175,
+                    maxSize: 400,
+                    collapsible: true,
+                    margins:'0 0 0 5',
+                    layout:'accordion',
+                    layoutConfig:{
+                        animate:true
+                    },
+                    items: [{
+                        contentEl: 'sidebar_shangpinbeian',
+                        title:'商品备案',
+                        border:false,
+                        iconCls:'nav'
+                    },{
+                        contentEl: 'sidebar_xuncharizhi',
+                        title:'巡查日志',
+                        border:false,
+                        iconCls:'settings'
+                    }]
+                },

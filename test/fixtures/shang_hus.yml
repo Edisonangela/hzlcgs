@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tanweihao: 
+  zihao: 
+  zhizhao: 
+  liutong: 
+  xuke: 
+
+two:
+  tanweihao: 
+  zihao: 
+  zhizhao: 
+  liutong: 
+  xuke: 

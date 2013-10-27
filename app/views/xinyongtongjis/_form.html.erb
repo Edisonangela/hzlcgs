@@ -1,0 +1,33 @@
+<%= form_for(@xinyongtongji) do |f| %>
+  <% if @xinyongtongji.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@xinyongtongji.errors.count, "error") %> prohibited this xinyongtongji from being saved:</h2>
+
+      <ul>
+      <% @xinyongtongji.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :shanghu_id %><br />
+    <%= f.text_field :shanghu_id %>
+  </div>
+  <div class="field">
+    <%= f.label :xinyongzhouqi_id %><br />
+    <%= f.text_field :xinyongzhouqi_id %>
+  </div>
+  <div class="field">
+    <%= f.label :defen %><br />
+    <%= f.text_field :defen %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

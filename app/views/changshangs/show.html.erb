@@ -1,0 +1,44 @@
+<%= extLayoutInnerFrom("显示 商户")%>
+<div id='content'>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>厂名:</b>
+  <%= @changshang.name %>
+</p>
+
+<p>
+  <b>地址:</b>
+  <%= @changshang.dizhi %>
+</p>
+
+<p>
+  <b>品类:</b>
+  <%= @changshang.leixing %>
+</p>
+
+<p>
+  <b>营业执照有效期:</b>
+  <%= @changshang.zhizhao %>
+</p>
+
+<p>
+  <b>生产许可有效期:</b>
+  <%= @changshang.shengchanxuke %>
+</p>
+
+<p>
+  <b>动物防疫条件合格证有效期:</b>
+  <%= @changshang.fangyi %>
+</p>
+
+<p>
+  <b>养殖证有效期:</b>
+  <%= @changshang.yangzhi %>
+</p>
+
+
+<%= link_to '编辑', edit_changshang_path(@changshang) %> |
+<%= link_to '返回', changshangs_path %>
+</div>

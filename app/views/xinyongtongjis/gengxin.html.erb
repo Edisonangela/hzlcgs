@@ -1,0 +1,17 @@
+<%= extLayoutInnerFrom("更新信用统计")%>
+<div id='content'>
+<h2>考评更新</h2>
+
+<%= start_form_tag :action => 'tongji' %>
+<p><label for="cheliang_car_no">摊位号：</label><br/>
+<%= text_field 'xinyongtongji', 'shanghu_id'  %></p>
+
+
+<p><label for="cheliang_leixing">考评周期：</label><br/>
+<%= select ('xinyongtongji', 'xinyongzhouqi_id',@xinyongzhouqis)%></p>   
+
+
+  <%= submit_tag '刷新考评' %>
+<%= end_form_tag %>
+
+</div>

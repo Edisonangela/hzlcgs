@@ -1,0 +1,34 @@
+<%= extLayoutInnerFrom("编辑 商户")%>
+<div id='content'>
+
+<p id="notice"><%= notice %></p>
+<p>
+  <b>摊位号:</b>
+  <%= @tanwei.tanweihao %>
+</p>
+
+<p>
+  <b>面积:</b>
+  <%= @tanwei.mianji %>
+</p>
+
+<h1><label><%= @tanwei.tanweihao%>摊位当前入驻的商户：</label></h1>
+
+<ul>
+  
+  	<% @tanwei.shanghus.each do |g|%>
+  	   <li>
+
+
+  	   	<%= "#{g.fuzeren}  #{g.zihao}"%>
+  	   </li>
+  	<% end %>
+
+  </ul>
+  <%= link_to 'Edit', edit_tanwei_path(@tanwei) %> |
+<%= link_to 'Back', tanweis_path %>
+  
+
+</div>
+
+

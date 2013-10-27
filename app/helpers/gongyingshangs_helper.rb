@@ -1,0 +1,2 @@
+module GongyingshangsHelper
+end

@@ -1,0 +1,21 @@
+<%= ext_layout%>
+<%= ext_grid("xinyongzhouqi","id","content",
+"'id','name','shijianduan','zhuangtai'",
+       "{
+            header: '名称',
+            dataIndex: 'name',
+            width: 90,
+            sortable: true
+        },{
+            header: '考评时间段',
+            dataIndex: 'shijianduan',
+            width: 30,
+            sortable: true
+        },{
+            header: '周期状态',
+            dataIndex: 'zhuangtai',
+            width: 80,
+            sortable: true
+        }","25",1224,430,"shijianduan","考评周期")%>
+
+<div id="content"></div>

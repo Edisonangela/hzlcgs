@@ -1,0 +1,240 @@
+<%= ext_layout%>
+<!--ext_edit_grid(title,     model,       primary_key,weizhi,pagesize,neirong,plant,fields,columns,newplant,newplantshujucaozuo) -->
+
+
+<%= chaxunfromtongji_ext_edit_grid_iest("违规记录","weiguijilus","id","content","25", "违规记录",
+"//plant(工厂)模型定义，plant用于表格添加行，所用的格式模型
+// the 'name' below matches the tag name to read, except 'availDate'
+           // which is mapped to the tag 'availability'
+           {name: 'id', type: 'integer'},
+           {name: 'xinyongzhouqi_id', type: 'string'},
+           {name: 'shijian', type: 'date'},
+           {name: 'tanweihao', type: 'string'},
+           {name: 'zihao', type: 'string'},
+           {name: 'weiguidalei',type: 'string'},
+           {name: 'guifan_id', type: 'integer'},
+           {name: 'weiguineirong', type: 'bool'},
+           {name: 'fenzhi', type: 'float'},
+           {name: 'chuliqingkuang', type: 'date'},
+           {name: 'faqiren', type: 'string'}
+",
+
+
+"//field
+'faqiren','shijian','dalei','tanweihao','zihao','weiguidalei','guifan_id','weiguineirong','fenzhi','chuliqingkuang'
+",
+
+"//previews
+yuangongs
+",
+
+
+"//columnmodel
+ 
+ 
+        {
+           
+           header: '发起人',
+           dataIndex: 'faqiren',
+           width: 60,
+           //editor: new fm.TextField({
+             //  allowBlank: false
+           //})
+        },
+       {   
+           header: '发起时间',
+           dataIndex: 'shijian',
+           width: 85,
+           //renderer: formatDate,
+           editor: new fm.DateField({
+                format: 'm/d/y',
+                minValue: '01/01/06',
+                disabledDays: [0, 6],
+                disabledDaysText: 'Plants are not available on the weekends'
+            })
+       },
+      {
+           
+           header: '商户号',
+           dataIndex: 'tanweihao',
+           width: 50,
+           editor: new fm.TextField({
+               allowBlank: false
+           })
+        },
+        {
+           
+           header: '字号',
+           dataIndex: 'zihao',
+           width: 80,
+           editor: new fm.TextField({
+               allowBlank: false
+           })
+        },
+        
+        {
+           header: '违规大类',
+           dataIndex: 'dalei',
+           width: 70,
+           editor:new Ext.form.ComboBox( {  
+             
+           id:'guifandalei',  
+           blankText : '必须选择厂商标识',  
+           hiddenName : 'id',  
+           name : 'name',  
+           triggerAction : 'all',  
+           allowBlank : true,  
+           editable : true,// 禁止编辑  
+           //loadingText : '正在加载厂商标识',// 加载数据时显示的提示信息  
+           displayField : 'dalei',// 定义要显示的字段  
+           valueField : 'dalei',  
+           mode : 'remote',// 远程模式  
+           emptyText : '请选择厂商标识',  
+           store : ds,  
+           fieldLabel : '省',  
+           listeners : {  
+                    'select' : function(e) 
+                       {   var field = e.field
+                        var guifan=Ext.getCmp('guifan');  
+                        guifan.reset();  
+                        guifan_store.proxy = new Ext.data.HttpProxy( { method:'GET', 
+                            url : '/guifans/guifanneirongs.json?dalei='  
+                                    + this.getValue() 
+                                });  
+                        
+                        var gf = Ext.getCmp('guifan');
+                        gf.store = guifan_store; 
+                        guifan_store.load(); 
+                       }
+                }
+             //renderer: function(value, cellmeta, record) {
+                   //通过匹配value取得ds索引
+               //  var index = statusDS.find(Ext.getCmp('statusCmb').valueField,value);
+                   //通过索引取得记录ds中的记录集
+               //  var record = statusDS.getAt(index);
+                   //返回记录集中的value字段的值
+         
+                //return record.data.weiguidalei;//注意这个地方的value是上面displayField中的value,因为我水平低，搞了好长时间 才明白 ，呵呵
+               // }      
+            })
+            },
+       {                      //要自动增加填补宽度的列给他 设置  id:autoExpandColumn
+           id: 'guifan',
+           header: '规范号',
+           dataIndex: 'guifan_id',
+           width: 250,
+           editor:new Ext.form.ComboBox( {  
+           
+           id:'guifan',  
+           //blankText : '必须选择厂商标识',  
+           hiddenName : 'id',  
+           name : 'name',  
+           triggerAction : 'all',  
+           allowBlank : true,  
+           editable : true,// 禁止编辑  
+           //loadingText : '正在加载厂商标识',// 加载数据时显示的提示信息  
+           displayField : 'guifanneirong',// 定义要显示的字段  
+           valueField : 'id',  
+           mode : 'remote',// 远程模式  
+           //emptyText : '请选择厂商标识',  
+           store : guifan_store,  
+           //fieldLabel : '省',
+
+           })
+        },  
+       
+      {
+           
+           header: '违规情况',
+           dataIndex: 'weiguineirong',
+           width: 300,
+           editor: new fm.TextField({
+               allowBlank: false
+           })
+        },
+        
+    {
+           
+           header: '分值',
+           dataIndex: 'fenzhi',
+           width: 40,
+           editor: new fm.TextField({
+               allowBlank: false
+           })
+        },
+        
+         {
+           
+           header: '处理情况',
+           dataIndex: 'chuliqingkuang',
+           width: 100,
+           editor: new fm.TextField({
+               allowBlank: true
+           })
+        },
+",
+
+
+"//add按钮点击后，data_store更新，这些内容添加至视图表格内,以下faqiren,insert_id,weiguineirong等值
+ //是从服务器返回的，通过Ext.util.JSON.decode(resp.responseText).属性名解码得到，详见weiguijilus_helper;
+                    faqiren:faqiren,
+                    shijian: (new Date()),
+                      //从服务器返回的添加行的 数据库行id值 insert_id
+                    id:insert_id,
+                    weiguineirong: weiguineirong,
+                    dalei:dalei,
+                    fenzhi:fenzhi,
+                    guifan_id:guifan_id
+",
+
+
+"//add按钮点击后，因添加行的name属性自动（见楼上）赋值为《新数据行》，故进行如下数据库输出操作
+faqiren: '#{session[:user_id]}',
+shijian: (new Date())
+",
+
+
+    "
+//checkcolumns，这张表没用到，无用代码
+    var checkColumn_zhuangtai = new Ext.grid.CheckColumn({
+       header: '日志状态',
+       dataIndex: 'zhuangtai',
+       width: 55,
+    
+    });
+    var checkColumn_kefutishi = new Ext.grid.CheckColumn({
+       header: '客服提示',
+       dataIndex: 'kefutishi',
+       width: 55,
+  
+    });
+    ",
+    
+    #定义grid表的datastore的初始化Url
+    @url,
+    
+    #plugins设置,这张表没用
+    "checkColumn_zhuangtai,checkColumn_kefutishi",
+    
+    "weiguijilus/updatel.json",
+    
+    "weiguijilus/createl.json",
+    
+    "weiguijilus/deletel.json",
+
+
+) %>
+
+
+
+
+
+<!-- you must define the select box here, as the custom editor for the 'Light' column will require it -->
+<select name="wentidalei" id="wentidalei" style="display: none;">
+<%= raw xuncharizhidalei %>
+
+</select>
+
+
+
+<div id="content"></div>

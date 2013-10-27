@@ -1,0 +1,25 @@
+<%= form_for(@tanwei) do |f| %>
+  <% if @tanwei.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tanwei.errors.count, "error") %> prohibited this tanwei from being saved:</h2>
+
+      <ul>
+      <% @tanwei.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :摊位号 %><br />
+    <%= f.text_field :tanweihao %>
+  </div>
+  <div class="field">
+    <%= f.label :面积 %><br />
+    <%= f.text_field :mianji %>
+  </div>
+  <div class="actions">
+    <%= f.submit '更新摊位信息' %>
+  </div>
+<% end %>

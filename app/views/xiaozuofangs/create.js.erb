@@ -1,0 +1,4 @@
+
+      var li = document.createElement("li");
+      li.innerHTML = '<%= check_box_tag 'xiaozuofangs[]', @xiaozuofang.id,false %><%= "#{@xiaozuofang.name}  #{@xiaozuofang.dizhi}"%>' ;
+      $("#results_xiaozuofang").append(li);

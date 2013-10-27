@@ -1,0 +1,34 @@
+<%= extLayoutInnerFrom("显示 供应商")%>
+<div id='content'>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>名称:</b>
+  <%= @gongyingshang.name %>
+</p>
+
+<p>
+  <b>类型:</b>
+  <%= @gongyingshang.leixing %>
+</p>
+
+<p>
+  <b>地址:</b>
+  <%= @gongyingshang.dizhi %>
+</p>
+
+<p>
+  <b>执照有效期:</b>
+  <%= @gongyingshang.zhizhao %>
+</p>
+
+<p>
+  <b>流通许可有效期:</b>
+  <%= @gongyingshang.liutong %>
+</p>
+
+
+<%= link_to '编辑', edit_gongyingshang_path(@gongyingshang) %> |
+<%= link_to '返回', gongyingshangs_path %>
+</div>

@@ -1,0 +1,3 @@
+      var li = document.createElement("li");
+      li.innerHTML = '<%= check_box_tag 'changshangs[]', @changshang.id,false %><%= "#{@changshang.name}  #{@changshang.dizhi}"%>' ;
+      $("#results_changshang").append(li);
