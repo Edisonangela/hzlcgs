@@ -70,7 +70,7 @@ class DaoruController < ApplicationController
   Spreadsheet.client_encoding = 'UTF-8'
   book = Spreadsheet.open path
   sheet1 = book.worksheet 0
-  sheet1.each 1 do |row|
+  sheet1.each 10000 do |row|
     changshang = Changshang.new
     shangpin = Shangpin.new
     shanghu = Shanghu.new

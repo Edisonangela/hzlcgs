@@ -91,13 +91,18 @@ module ApplicationHelper
   end
   
   def extLayoutInnerFrom (title)
-     function = " Ext.onReady(function(){
+     function =  "Ext.onReady(function(){
        Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
-       var viewport = new Ext.Viewport({
+       var viewport = new Ext.Viewport(
+       {
             layout:'border',
-            items:[ 
-                    {region:'west',
+            items:[
+
+
+            {
+                    region:'west',
                     id:'west-panel',
+                    
                     title:'功能菜单',
                     split:true,
                     width: 118,
@@ -126,7 +131,6 @@ module ApplicationHelper
                         iconCls:'foler_wrench'
                     }
                   ]
-                }]
                 },
             {
                 region:'north',
