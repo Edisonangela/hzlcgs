@@ -71,8 +71,8 @@ class DaoruController < ApplicationController
   book = Spreadsheet.open path
   sheet1 = book.worksheet 0
 
-  #试试看
-  sheet1.each 2 do |row|
+  #试试看111232323
+  sheet1.each 23 do |row|
 
     changshang = Changshang.new
     shangpin = Shangpin.new
