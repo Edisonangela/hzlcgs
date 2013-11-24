@@ -72,7 +72,11 @@ class DaoruController < ApplicationController
   sheet1 = book.worksheet 0
 
   sheet1.each 1 do |row|
+
 #是的发顺丰
+
+#草草草
+
     changshang = Changshang.new
     shangpin = Shangpin.new
     shanghu = Shanghu.new
