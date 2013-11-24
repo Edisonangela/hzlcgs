@@ -71,7 +71,11 @@ class DaoruController < ApplicationController
   book = Spreadsheet.open path
   sheet1 = book.worksheet 0
 
+<<<<<<< HEAD
   #试试看111232323
+=======
+  #试试看1112323239999
+>>>>>>> 201124commit-amend功能测试一
   sheet1.each 23 do |row|
 
     changshang = Changshang.new
