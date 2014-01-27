@@ -1,12 +1,4 @@
-
-
 .DS_Store
-
 development.log
-
 /public/excels/daoru.xls
-
-development.log
-
-
-pids
+/tmp/pids/
