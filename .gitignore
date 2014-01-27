@@ -1,7 +1,10 @@
 
 
 .DS_Store
+
 development.log
-daoru.xls
+
 /public/excels/daoru.xls
-pids
+
+development.log
+
