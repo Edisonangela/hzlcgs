@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     response.headers["Content-Type"] = "text/html; charset=utf-8"
   end
   
-  before_filter :authorize, :except=> [:login, :register, :check_name, :tanweidaoru,:changshangbeian,:guifanbeian,:changshangbeiandaoru,:gongyingshangbeiandaoru,:xiaozuofangbeiandaoru,:guifandaoru,:weiguijiludaoru,:updatel,:deletel,:createl ]
+  before_filter :authorize, :except=> [:login, :register, :check_name, :tanweidaoru,:tanwei,:changshangbeian,:guifanbeian,:changshangbeiandaoru,:gongyingshangbeiandaoru,:xiaozuofangbeiandaoru,:guifandaoru,:weiguijiludaoru,:updatel,:deletel,:createl ]
 
   private
   def authorize  

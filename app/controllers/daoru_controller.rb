@@ -10,7 +10,7 @@ class DaoruController < ApplicationController
    
  end
   
-  def tanweidaoru
+ def tanweidaoru
   require 'spreadsheet'
   @file_data=params[:lujing].read
   path =  "#{Rails.root}/public/excels/daoru.xls"
@@ -24,22 +24,29 @@ class DaoruController < ApplicationController
     tanwei=Tanwei.new
     shanghu=Shanghu.new
     xinhao1=true
-    if (row[1]==nil or row[2]==nil or row[3]==nil)
+    #binding.pry
+    if (row[1]==nil)
     next
     end
     shanghus = Shanghu.find_all_by_fuzeren(row[3])
     shanghus.each do |sh|
-      if sh.zihao == row[2]
-        xinhao1 = false
-        shanghu = sh
-        break
-      end
+      
+        if sh.zihao == row[2]
+          xinhao1 = false
+          shanghu = sh
+          break
+        end
+      
+        
+      
+
     end
 
     # do something interesting with a row
     if(xinhao1)
     shanghu.fuzeren=row[3]
     shanghu.zihao=row[2]
+    shanghu.dianhua=row[4]
     shanghu.save 
     end
     
