@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
-
+#source 'https://rubygems.org'
+source 'http://ruby.taobao.org/'
 gem 'rails', '3.2.11'
 gem 'therubyracer'
 # Bundle edge Rails instead:
@@ -22,6 +22,7 @@ end
 gem 'jquery-rails'
 gem 'pry' 
 gem "pry-nav"
+gem 'foreman'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
