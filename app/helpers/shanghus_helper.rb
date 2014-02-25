@@ -92,7 +92,7 @@ module ShanghusHelper
                         'render': {fn:function(){
                   Ext.getCmp('filter1').getEl().on('keyup', function(){
                      filter1();
-                  }, this, {buffer:500});
+                  }, this, {buffer:5000});
                         }, scope:this}
                       }
                    }, 
